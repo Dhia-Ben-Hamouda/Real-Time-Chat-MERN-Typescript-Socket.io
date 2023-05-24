@@ -15,3 +15,11 @@ export type Action = {
     type: string,
     payload?: any
 }
+
+export type AuthForm = {
+    name: string,
+    phone: string,
+    email: string,
+    password: string,
+    picture: File | null
+}

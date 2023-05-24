@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+$primary:#2C90ED;
+$secondary:#777;
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Cairo', sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+@import "./authPage";
+@import "./homePage";
+@import "./searchPage";
