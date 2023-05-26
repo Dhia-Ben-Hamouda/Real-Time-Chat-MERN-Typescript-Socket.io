@@ -6,7 +6,7 @@ import ForgetPassword from "./components/auth/ForgetPassword";
 import ResetPassword from "./components/auth/ResetPassword";
 import HomePage from "./pages/HomePage";
 
-export default function(){
+export default function App(){
     return(
         <>
             <Routes>

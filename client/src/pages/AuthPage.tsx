@@ -6,10 +6,10 @@ export default function AuthPage(){
     return(
         <>
             <section id="authPage">
-                <Outlet />
                 <div className="illustration-container">
                     <img src={illustration} alt="illustration" />
                 </div>
+                <Outlet />
             </section>
         </>
     )
