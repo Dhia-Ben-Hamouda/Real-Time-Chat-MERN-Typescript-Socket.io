@@ -8,11 +8,11 @@ export default function ForgetPassword() {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const navigate = useNavigate();
 
-    function submitHandler(e: React.FormEvent){
+    function submitHandler(e: React.FormEvent) {
         e.preventDefault();
 
-        if(buttonRef){
-            
+        if (buttonRef.current) {
+
         }
     }
 
@@ -23,7 +23,7 @@ export default function ForgetPassword() {
                 <h1>Me<span>rn</span> Sta<span>ck</span> Ch<span>at</span> A<span>pp</span></h1>
                 <form autoComplete="off" onSubmit={submitHandler} >
                     <TextField value={email} onChange={e => setEmail(e.target.value)} label="enter email..." />
-                    <button>Send password reset link</button>
+                    <button type="submit" ref={buttonRef} >Send password reset link</button>
                 </form>
             </div>
         </>

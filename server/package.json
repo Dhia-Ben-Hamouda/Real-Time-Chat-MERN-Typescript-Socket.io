@@ -15,7 +15,9 @@
     "@types/cookie-parser": "^1.4.3",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/multer": "^1.4.7",
+    "@types/nodemailer": "^6.4.8",
     "@types/sharp": "^0.32.0",
     "typescript": "^5.0.4"
   },
@@ -28,6 +30,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.1",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.2",
     "nodemon": "^2.0.22",
     "sharp": "^0.32.1",
     "socket.io": "^4.6.1",
