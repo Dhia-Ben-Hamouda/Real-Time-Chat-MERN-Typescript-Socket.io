@@ -36,7 +36,11 @@ export async function signUp(req: Request, res: Response) {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         if (req.file) {
-            
+            const imageName = Date.now() + "-" + req.file.originalname;
+            const imagePath = `uploads/images/${imageName}`;
+
+            await sharp(req.file.buffer).toFile(imagePath);
+            await User.create({ name, phone, email, password: hashedPassword, picture: imageName });
 
         } else {
             await User.create({ name, phone, email, password: hashedPassword });
@@ -52,23 +56,51 @@ export async function signOut(req: Request, res: Response) {
     try {
 
     } catch (err) {
-
+        return res.status(400).json({ msg: "error while signing out" });
     }
 }
 
 export async function forgetPassword(req: Request, res: Response) {
     try {
+        const { email } = req.body;
+        const exist = await User.findOne({ email });
+
+        if (!exist) return res.status(404).json({ msg: "user with the given email doesn't exist" });
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: '',
+                pass: ''
+            }
+        });
+
+        const mailOptions = {
+            from: 'your_email_address',
+            to: email,
+            subject: 'Password Reset',
+            text: 'Click the following link to reset your password: '
+        }
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
 
     } catch (err) {
-
+        return res.status(400).json({ msg: "error while sending password reset link" });
     }
 }
 
 export async function resetPassword(req: Request, res: Response) {
     try {
+        const { id, newPassword } = req.body;
 
     } catch (err) {
-
+        return res.status(400).json({ msg: "error while resetting password" });
     }
 }
 

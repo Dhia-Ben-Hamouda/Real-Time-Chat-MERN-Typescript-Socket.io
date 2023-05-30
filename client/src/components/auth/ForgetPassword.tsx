@@ -18,7 +18,7 @@ export default function ForgetPassword() {
 
     return (
         <>
-            <div className="forget-password-container">
+            <div className="auth-container">
                 <img src={logo} alt="logo" />
                 <h1>Me<span>rn</span> Sta<span>ck</span> Ch<span>at</span> A<span>pp</span></h1>
                 <form autoComplete="off" onSubmit={submitHandler} >

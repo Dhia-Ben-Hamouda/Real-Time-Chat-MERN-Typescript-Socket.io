@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     picture:{
         type:String,
         required:true,
-        default:"images/profile.png"
+        default:"profile.png"
     }
 })
 

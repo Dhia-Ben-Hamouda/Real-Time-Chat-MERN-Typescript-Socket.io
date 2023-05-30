@@ -1,16 +1,15 @@
 import React, { useRef, useState } from "react";
 import logo from "../../assets/images/logo.png";
-import { TextField } from "@mui/material";
+import { TextField , InputAdornment } from "@mui/material";
 import type { AuthForm } from "../../@types/types";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import google from "../../assets/images/socials/google.png";
 import facebook from "../../assets/images/socials/facebook.png";
 import twitter from "../../assets/images/socials/twitter.png";
 import emptyObject from "../../utils/emptyObject";
 import validateForm from "../../utils/validateForm";
-import { signIn } from "../../utils/auth";
-import { signUp } from "../../utils/auth";
-import { useNavigate } from "react-router-dom";
+import { signIn , signUp  } from "../../utils/auth";
+import { FaEye , FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 
 export default function Auth() {
@@ -22,7 +21,9 @@ export default function Auth() {
     const navigate = useNavigate();
     const { dispatch } = useAuth();
 
-    function submitHandler() {
+    function submitHandler(e: React.FormEvent) {
+        e.preventDefault();
+
         if (!emptyObject(validateForm(authForm, status))) {
             setErrors(validateForm(authForm, status));
             return;
@@ -55,12 +56,18 @@ export default function Auth() {
                 <form onSubmit={submitHandler} autoComplete="off" >
                     {
                         status !== "signIn" && <>
-                            <TextField name="name" value={authForm.name} onChange={handleChange} label="enter name..." />
-                            <TextField name="phone" value={authForm.phone} onChange={handleChange} label="enter phone..." />
+                            <TextField error={!!errors.name} helperText={errors.name} name="name" value={authForm.name} onChange={handleChange} label="enter name..." />
+                            <TextField error={!!errors.phone} helperText={errors.phone} name="phone" value={authForm.phone} onChange={handleChange} label="enter phone..." />
                         </>
                     }
-                    <TextField name="email" value={authForm.email} onChange={handleChange} label="enter email..." />
-                    <TextField name="password" value={authForm.password} onChange={handleChange} label="enter password..." />
+                    <TextField error={!!errors.email} helperText={errors.email} name="email" value={authForm.email} onChange={handleChange} label="enter email..." />
+                    <TextField error={!!errors.password} helperText={errors.password} type={hidden ? "password" : "text" } InputProps={{
+                        endAdornment: <InputAdornment position="end" >
+                            {
+                                hidden ? <FaEye size="1.5rem" color="#555" style={{ cursor:"pointer" }} onClick={() => { setHidden(!hidden) }} /> : <FaEyeSlash size="1.5rem" color="#555" style={{ cursor:"pointer" }} onClick={() => { setHidden(!hidden) }} /> 
+                            }
+                        </InputAdornment>
+                    }} name="password" value={authForm.password} onChange={handleChange} label="enter password..." />
                     {
                         status === "signIn" ? <Link to="forgetPassword" >forget password ?</Link> : <div className="profile-picture" >
                             <input type="file" onChange={handleFile} />
