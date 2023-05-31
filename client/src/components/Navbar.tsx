@@ -17,12 +17,12 @@ export default function Navbar(){
                 <div className="container">
                     <div className="search-container">
                         <button>
-                            <FaSearch />
+                            <FaSearch className="search-icon" />
                         </button>
                         <input placeholder="Search for users..." />
                     </div>
                     <div className="avatar-container">
-                        <img src={`${url}/images/${user.picture}`} alt="avatar" /> 
+                        <img className="avatar" src={`${url}/images/${user.picture}`} alt="avatar" /> 
                     </div>
                 </div>
             </nav>

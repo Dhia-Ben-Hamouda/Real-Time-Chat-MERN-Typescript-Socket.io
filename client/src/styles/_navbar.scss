@@ -1,5 +1,5 @@
 nav{
-    margin:2rem 10vw 1rem;
+    margin:1.5rem 10vw 1rem;
     padding:1rem 1.5rem;
     background:white;
     display: flex;
@@ -10,11 +10,50 @@ nav{
     .container{
         display: flex;
         align-items: center;
+        gap:1rem;
+
+        .search-container{
+            display: flex;
+            background: #f4f4f4;
+            width:250px;
+            border-radius: 50px;
+            gap:.75rem;
+            padding:.5rem;
+
+            input{
+                flex:1;
+                border:none;
+                outline:none;
+                background:#f4f4f4;
+            }
+
+            button{
+                width:35px;
+                height:35px;
+                border:none;
+                outline:none;
+                border-radius: 50%;
+                background:$primary;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                .search-icon{
+                    color:white;
+                    width:1rem;
+                    height:1rem;
+                }
+            }
+        }
 
         .avatar-container{
+            display: flex;
+
             img{
                 width:40px;
                 border-radius: 50%;
+                cursor: pointer;
             }
         }
     }
