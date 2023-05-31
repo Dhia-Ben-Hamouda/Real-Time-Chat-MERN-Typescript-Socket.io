@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import sharp from "sharp";
+import generateEmailTemplates from "../helpers/generateEmailTemplate";
 
 export async function signIn(req: Request, res: Response) {
     try {
@@ -16,11 +17,12 @@ export async function signIn(req: Request, res: Response) {
 
         if (!match) return res.status(400).json({ msg: "wrong password" });
 
-        const accessToken = generateAccessToken({ email, password, picture: exist.picture, phone: exist.phone, name: exist.name });
-        const refreshToken = generateRefreshToken({ email, password, picture: exist.picture, phone: exist.phone, name: exist.name });
+        const accessToken = generateAccessToken({ email, password, picture: exist.picture, phone: exist.phone, name: exist.name , id:exist._id });
+        const refreshToken = generateRefreshToken({ email, password, picture: exist.picture, phone: exist.phone, name: exist.name , id:exist._id });
 
         return res.status(200).cookie("refreshToken", refreshToken, { httpOnly: true }).json({ msg: "signed in successfully", accessToken });
     } catch (err) {
+        console.log(err);
         return res.status(400).json({ msg: "error while signing in" });
     }
 }
@@ -70,16 +72,16 @@ export async function forgetPassword(req: Request, res: Response) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: '',
-                pass: ''
+                user: 'mernstackchat@gmail.com',
+                pass: 'unckxwaislloxohe'
             }
         });
 
         const mailOptions = {
-            from: 'your_email_address',
+            from: 'mernstackchat@gmail.com',
             to: email,
             subject: 'Password Reset',
-            text: 'Click the following link to reset your password: '
+            html: generateEmailTemplates()
         }
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -98,9 +100,26 @@ export async function forgetPassword(req: Request, res: Response) {
 export async function resetPassword(req: Request, res: Response) {
     try {
         const { id, newPassword } = req.body;
+        const exist = await User.findById(id);
 
+        if (!exist) return res.status(404).json({ msg: "user with the given id doesn't exist" });
+
+        const salt = await bcrypt.genSalt(5);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        await User.findByIdAndUpdate(id, { password: hashedPassword });
+
+        return res.status(200).json({ msg:"password has been reset successfully" });
     } catch (err) {
         return res.status(400).json({ msg: "error while resetting password" });
+    }
+}
+
+export async function refreshTokens(req: Request, res: Response) {
+    try {
+
+    } catch (err) {
+        return res.status(400).json({ msg: "error while refreshing tokens" })
     }
 }
 

@@ -11,9 +11,12 @@ const initalState = {
 function authReducer(state: AuthState = initalState, action: Action) {
     switch (action.type) {
         case "SIGN_IN":
-
+            localStorage.setItem("accessToken", action.payload.accessToken);
+            localStorage.setItem("user", JSON.stringify(action.payload.user));
+            return { accessToken: action.payload.accessToken, user: action.payload.user }
         case "SIGN_OUT":
-
+            localStorage.clear();
+            return { accessToken: null, user: null }
         default:
             return state;
     }
@@ -24,7 +27,7 @@ export default function AuthProvider({ children }: ProviderProps) {
 
     return (
         <>
-            <AuthContext.Provider value={{ ...state , dispatch }} >{children}</AuthContext.Provider>
+            <AuthContext.Provider value={{ ...state, dispatch }} >{children}</AuthContext.Provider>
         </>
     )
 }

@@ -3,12 +3,17 @@ export type ProviderProps = {
 }
 
 export type User = {
-
+    name: string,
+    phone: number,
+    email: string,
+    password: string,
+    id: string,
+    picture: string
 }
 
 export type AuthState = {
-    accessToken: string,
-    user: User
+    accessToken: string | null,
+    user: User | null
 }
 
 export type Action = {
