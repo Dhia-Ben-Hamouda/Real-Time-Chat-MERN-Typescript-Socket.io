@@ -11,7 +11,7 @@ export default function Navbar(){
         <>
             <nav>
                 <div className="title">
-                    <img src={logo} alt="" />
+                    <img className="logo" src={logo} alt="" />
                     <h1>Me<span>rn</span> Sta<span>ck</span> Ch<span>at</span> A<span>pp</span></h1>
                 </div>
                 <div className="container">

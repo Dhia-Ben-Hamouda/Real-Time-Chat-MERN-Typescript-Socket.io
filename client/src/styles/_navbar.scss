@@ -1,0 +1,42 @@
+nav{
+    margin:2rem 10vw 1rem;
+    padding:1rem 1.5rem;
+    background:white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    border-radius: 5px;
+
+    .container{
+        display: flex;
+        align-items: center;
+
+        .avatar-container{
+            img{
+                width:40px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .title{
+        display: flex;
+        align-items: center;
+        gap:.75rem;
+
+        .logo{
+            width:2.125rem;
+        }
+
+        h1{
+            color:$secondary;
+            font-weight: 800;
+
+            span{
+                color:$primary;
+            }
+        }
+
+    }
+
+}
