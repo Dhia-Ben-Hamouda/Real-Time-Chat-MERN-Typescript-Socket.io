@@ -18,6 +18,6 @@ export default function authMiddleware(req: MyRequest, res: Response, next: Next
 
         next();
     } catch (err) {
-        return res.status(403).json({ msg: "invalid token" })
+        return res.status(403).json({ msg: "invalid token" });
     }
 }

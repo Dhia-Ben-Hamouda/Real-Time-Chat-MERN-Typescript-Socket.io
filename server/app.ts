@@ -16,10 +16,7 @@ dotenv.config();
 app.use(express.static("uploads"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin:"*",
-    credentials:true
-}));
+app.use(cors({ origin: "*", credentials: true }));
 
 // env variables
 
@@ -29,28 +26,28 @@ const url = process.env.URL as string;
 // connecting to mongoDB
 
 mongoose.connect(url)
-.then(() => { console.log("connected to mongoDB !") })
-.catch((err) => { console.error(err) });
+    .then(() => { console.log("connected to mongoDB !") })
+    .catch((err) => { console.error(err) });
 
 // launching the app
 
-server.listen(port , () => {
+server.listen(port, () => {
     console.log(`listening to requests on port ${port}`);
 })
 
 // handle routes
 
-app.use("/auth" , authRoutes);
+app.use("/auth", authRoutes);
 
 // handle web sockets
 
-const io = new Server(server , {
-    cors:{
-        origin:"*"
+const io = new Server(server, {
+    cors: {
+        origin: "*"
     },
-    pingTimeout:60000
+    pingTimeout: 60000
 })
 
-io.on("connection" , (socket) => {
-    
+io.on("connection", (socket) => {
+
 })

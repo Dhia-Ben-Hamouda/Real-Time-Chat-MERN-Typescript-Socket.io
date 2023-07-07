@@ -14,30 +14,7 @@ export default function HomePage() {
         <>
             <Navbar />
             <section id="chat-container">
-                <div className="conversations-container">
-                    <div className="header">
-                        <h2>My Chats</h2>
-                        <button>Create Group Chat</button>
-                    </div>
-                    <div className="conversations">
-                        <Conversation />
-                        <Conversation />
-                        <Conversation />
-                        <Conversation />
-                        <Conversation />
-                        <Conversation />
-                        <Conversation />
-                    </div>
-                </div>
-                <div className="messages-container">
-                    <div className="chat-box">
-
-                    </div>
-                    <form autoComplete="off" >
-                        <input value={message} onChange={(e: any) => { setMessage(e.target.value) }} placeholder="enter message..." className="field" />
-                        <button>Send message</button>
-                    </form>
-                </div>
+                
             </section>
             <Toaster />
         </>

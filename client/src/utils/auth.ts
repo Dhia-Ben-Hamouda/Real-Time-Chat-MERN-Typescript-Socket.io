@@ -51,7 +51,7 @@ export async function signIn(authForm: AuthForm, button: HTMLButtonElement, navi
     try {
         toast.loading("signing in...", { id: "auth", position: "bottom-center" });
         button.disabled = true;
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 500));
 
         const response = await fetch(`${url}/auth/signIn`, {
             method: "POST",
@@ -98,7 +98,7 @@ export async function signUp(authForm: AuthForm, button: HTMLButtonElement) {
     try {
         toast.loading("creating account...", { id: "auth", position: "bottom-center" });
         button.disabled = true;
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 500));
 
         const response = await fetch(`${url}/auth/signUp`, {
             method: "POST",
