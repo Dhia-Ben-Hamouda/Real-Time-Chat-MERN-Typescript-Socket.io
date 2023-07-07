@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
-$primary: #2C90ED;
+$primary: #427FD1;
 $secondary: #777;
 
 * {
@@ -10,6 +10,7 @@ $secondary: #777;
     list-style: none;
     text-decoration: none;
     font-family: 'Cairo', sans-serif;
+    user-select: none;
 }
 
 body {
