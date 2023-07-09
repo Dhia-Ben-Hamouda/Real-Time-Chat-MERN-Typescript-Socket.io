@@ -1,0 +1,118 @@
+#home-page{
+    min-height: calc(100vh - 75px);
+    padding-left:10vw;
+    padding-top:1rem;
+    display: flex;
+    gap:1rem;
+
+    .home-container{
+        background:green;
+        width:80%;
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr;
+        gap:1rem;
+
+        &>div{
+            background:red;
+        }
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+
+            .birthday-container{
+                background:white;
+                display: flex;
+                align-items: center;
+                border-radius: 5px;
+                padding:1rem;
+                gap:1rem;
+
+                p{
+                    color: $secondary;
+                    font-weight: 700;
+                }
+
+                img{
+                    width:25px;
+                    height: 25px;
+                }
+
+            }
+
+            .people-you-may-know-container{
+                background:white;
+                padding:1rem;
+                border-radius: 5px;
+
+                .people{
+                    display: flex;
+                    flex-direction: column;
+                    gap:1rem;
+
+                    .person{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        button{
+                            color:white;
+                            background:$primary;
+                            border: none;
+                            padding:.25rem 1rem;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: .5s;
+
+                            &:hover{
+                                transform: scale(1.08);
+                            }
+                        }
+
+                        p{
+                            color:$secondary;
+                            font-weight: 600;
+                        }
+
+                        img{
+                            width:45px;
+                            height:45px;
+                            border-radius: 50%;
+                        }
+                    }
+
+                }
+
+                .wrapper{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1rem;
+
+                    p{
+                        color:$secondary;
+                        font-weight: 700;
+                    }
+
+                    .icon{
+                        color:$secondary;
+                        cursor: pointer;
+                        width:1.5rem;
+                        height:1.5rem;
+                    }
+
+                }
+
+            }
+
+
+        }
+
+    }
+
+    .chat-container{
+        background:green;
+        width:20%;
+    }
+}

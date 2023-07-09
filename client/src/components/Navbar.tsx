@@ -13,7 +13,7 @@ export default function Navbar() {
                 <div className="container">
                     <div className="website-container">
                         <img src={logo} alt="logo-picture" />
-                        <div className="search-container">
+                        <div className="search-container shadow">
                             <FaSearch className="icon" />
                             <input placeholder="Type here to search..." />
                         </div>

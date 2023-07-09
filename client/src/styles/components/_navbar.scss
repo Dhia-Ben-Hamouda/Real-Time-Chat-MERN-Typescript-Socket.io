@@ -46,8 +46,10 @@ nav{
 
         .profile-container{
             .avatar-wrapper{
+                display: flex;
                 img{
-                    width:50px;
+                    width:40px;
+                    cursor: pointer;
                 }
             }
         }
@@ -55,7 +57,6 @@ nav{
     }
 
     .placeholder{
-        background:green;
         width:20%;
     }
 }
