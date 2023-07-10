@@ -6,15 +6,10 @@
     gap:1rem;
 
     .home-container{
-        background:green;
         width:80%;
         display: grid;
         grid-template-columns: 2fr 3fr 2fr;
         gap:1rem;
-
-        &>div{
-            background:red;
-        }
 
         .left{
             display: flex;

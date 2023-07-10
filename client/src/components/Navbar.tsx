@@ -21,7 +21,7 @@ export default function Navbar() {
                     <div className="profile-container">
 
                         <div className="avatar-wrapper">
-                            <img src={`${url}/images/profile.png`} alt="user-picture" />
+                            <img src={`${url}/images/${user.picture}`} alt="user-picture" />
                             <div className="dropdown">
 
                             </div>

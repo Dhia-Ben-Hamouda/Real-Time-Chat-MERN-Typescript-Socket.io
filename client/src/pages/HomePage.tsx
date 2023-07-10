@@ -19,7 +19,7 @@ export default function HomePage() {
                             <img src={present} alt="present-picture" />
                             <p>Dhia Ben Hamouda and 2 others have their birthday today</p>
                         </div>
-                        <div className="people-you-may-know-container">
+                        <div className="people-you-may-know-container shadow">
                             <div className="wrapper">
                                 <p>People you may know</p>
                                 <MdRefresh className="icon" />

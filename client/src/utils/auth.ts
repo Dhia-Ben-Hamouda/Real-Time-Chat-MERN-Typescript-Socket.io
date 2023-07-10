@@ -66,8 +66,6 @@ export async function signIn(authForm: AuthForm, button: HTMLButtonElement, navi
         const data = await response.json();
         button.disabled = false;
 
-        console.log(data);
-
         switch (data.msg) {
             case "user with the given email doesn't exist":
                 toast.error(data.msg, { id: "auth" });
@@ -81,9 +79,6 @@ export async function signIn(authForm: AuthForm, button: HTMLButtonElement, navi
             case "signed in successfully":
                 const accessToken = data.accessToken;
                 const user = decode(accessToken) as User;
-
-                console.log("here");
-
                 dispatch({ type: "SIGN_IN", payload: { accessToken, user } });
                 toast.success(`welcome back ${user.name}`, { id: "auth" });
                 navigate("/home");
@@ -100,12 +95,17 @@ export async function signUp(authForm: AuthForm, button: HTMLButtonElement) {
         button.disabled = true;
         await new Promise(r => setTimeout(r, 500));
 
+        const formData = new FormData();
+        
+        formData.append("name" , authForm.name);
+        formData.append("phone" , authForm.phone);
+        formData.append("email" , authForm.email);
+        formData.append("password" , authForm.password);
+        formData.append("picture" , authForm.picture as Blob);
+
         const response = await fetch(`${url}/auth/signUp`, {
             method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(authForm)
+            body: formData
         });
         const data = await response.json();
         button.disabled = false;

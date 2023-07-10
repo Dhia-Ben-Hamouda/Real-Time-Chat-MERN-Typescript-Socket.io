@@ -4,6 +4,8 @@ nav{
     gap:1rem;
     padding-left:10vw;
     padding-block: .75rem;
+    position: sticky;
+    top:0px;
 
     .container{
         display: flex;
@@ -48,8 +50,9 @@ nav{
             .avatar-wrapper{
                 display: flex;
                 img{
-                    width:40px;
+                    width:45px;
                     cursor: pointer;
+                    border-radius: 50%;
                 }
             }
         }
