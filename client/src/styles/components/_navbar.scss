@@ -2,7 +2,7 @@ nav{
     background:white;
     display: flex;
     gap:1rem;
-    padding-left:10vw;
+    padding-left:5vw;
     padding-block: .75rem;
     position: sticky;
     top:0px;
@@ -24,7 +24,7 @@ nav{
 
             .search-container{
                 background:$background;
-                padding:.75rem;
+                padding:.5rem .75rem;
                 width:300px;
                 display: flex;
                 align-items: center;

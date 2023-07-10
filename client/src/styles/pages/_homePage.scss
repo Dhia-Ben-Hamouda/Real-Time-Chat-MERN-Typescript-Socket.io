@@ -1,19 +1,152 @@
 #home-page{
     min-height: calc(100vh - 75px);
-    padding-left:10vw;
+    padding-left:5vw;
     padding-top:1rem;
     display: flex;
     gap:1rem;
 
     .home-container{
         width:80%;
-        display: grid;
-        grid-template-columns: 2fr 3fr 2fr;
+        display: flex;
         gap:1rem;
+
+        .middle{
+            background:red;
+            width: 47%;
+        }
+
+        .right{
+            width: 27% !important;
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+
+            .action-container{
+                background:white;
+                padding:1rem 2rem;
+                border-radius: 5px;
+                display: grid;
+                grid-template-columns: repeat(2 , 1fr);
+                gap:.75rem;
+
+                .action{
+                    display: flex;
+                    align-items: center;
+                    gap:.75rem;
+                    cursor: pointer;
+
+                    p{
+                        color:$secondary;
+                        font-weight: 700;
+                        font-size: .8rem;
+                    }
+
+                    img{
+                        width:20px;
+                    }
+                }
+            }
+
+            .invitation-container{
+                background:white;
+                display: flex;
+                flex-direction: column;
+                padding:1rem;
+
+                img{
+                    width:70px;
+                    margin-inline: auto;
+                    margin-bottom: .5rem;
+                }
+
+                p{
+                    text-align: center;
+                    color:$secondary;
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                }
+
+                .input-container{
+                    background:$background;
+                    display: flex;
+                    padding:.25rem;
+
+                    input{
+                        flex:1;
+                        border: none;
+                        outline:none;
+                        background:$background;
+                        margin-left: .5rem;
+                    }
+
+                    button{
+                        color:white;
+                        background:$primary;
+                        border:none;
+                        cursor: pointer;
+                        padding:.25rem 1rem;
+                        border-radius: 5px;
+                        transition: .5s;
+
+                        &:hover{
+                            transform: scale(1.08);
+                        }
+                    }
+
+                }
+
+            }
+            
+            .profile-container{
+                background:white;
+                border-radius: 5px;
+                overflow: hidden;
+
+                .cover-container{
+                    position: relative;
+                    display: flex;
+
+                    .cover-picture{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    .profile-picture{
+                        border-radius: 50%;
+                        width: 80px;
+                        position: absolute;
+                        top:100%;
+                        right: 50%;
+                        transform: translate(50% , -50%);
+                        cursor: pointer;
+                        transition: .5s;
+
+                        &:hover{
+                            transform: translate(50% , -50%) scale(1.1);
+                        }
+                    }
+                }
+
+                .placeholder{
+                    height: 40px;
+                    margin-bottom: .5rem;
+                }
+
+                p.user-name{
+                    text-align: center;
+                    font-weight: 700;
+                    color:$secondary;
+                    cursor: pointer;
+                    margin-bottom: .75rem;
+                }
+
+            }
+        }
 
         .left{
             display: flex;
             flex-direction: column;
+            width: 28%;
             gap:1rem;
 
             .birthday-container{
@@ -107,7 +240,8 @@
     }
 
     .chat-container{
-        background:green;
+        background:white;
         width:20%;
+        border-top-left-radius: 5px;
     }
 }

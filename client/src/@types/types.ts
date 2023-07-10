@@ -28,3 +28,9 @@ export type AuthForm = {
     password: string,
     picture: File | null
 }
+
+export type ModalProps = {
+    children: React.ReactNode,
+    isOpen: boolean
+    setIsOpen: Function
+}
